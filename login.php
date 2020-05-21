@@ -17,21 +17,39 @@
         $userpassword  = $_POST['pass'];
         $hashedpassword= sha1($userpassword);
 
-        $stmt = $con->prepare("SELECT UserID, UserEmail, UserPassword FROM users WHERE UserEmail = ? AND UserPassword = ? AND GroupID = 1 ");
-        $stmt->execute(array($Useremail, $hashedpassword,));
-        $row = $stmt->fetch(); 
+        //$stmt = $con->prepare("SELECT UserID, UserEmail, UserPassword FROM users WHERE UserEmail = ? AND UserPassword = ? AND GroupID = 1 ");
+        //$stmt->execute(array($Useremail, $hashedpassword,));
+        //$row = $stmt->fetch(); 
+        //$count = $stmt->rowCount();
+
+        if (empty($Useremail) || empty($userpassword)) {
+          echo "Please insert all data";
+        }else{
+          
+        $stmt = $con->prepare("SELECT * FROM users WHERE UserEmail = ? AND UserPassword = ? ");
+        $stmt->execute(array($Useremail, $hashedpassword));
+        $profile = $stmt->fetch();
         $count = $stmt->rowCount();
-        //echo $count;
+
+
 
         if ($count > 0) {
           # code...
           $_SESSION['USER'] = $Useremail;
-          $_SESSION['ID']   = $row['UserID'];
+          $_SESSION['ID']   = $profile['UserID'];
+          $_SESSION['GroupID'] = $profile['GroupID'];
+
           
           
           header('Location: regions.php');
 
+        }else{
+          echo "Wrong password";
         }
+        }
+
+
+        
 
       }
 
@@ -70,7 +88,7 @@
               
 <div class="form-group">
 <label class="label ">Password</label>
-<input class="form-control" type="password" name="pass">
+<input class="form-control" type="password" name="pass" data-required>
 </div>
               
 <div class="form-group mt-25">

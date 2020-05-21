@@ -5,6 +5,61 @@
 
 
 </head>
+
+
+<?php 
+if ($_SERVER['REQUEST_METHOD'] =='POST') {
+
+
+	$UserFullName 		= $_POST['name'];
+	$UserEmail 			= $_POST['email'];
+	$UserPhoneNumber 	= $_POST['phone'];
+	$UserPassword 		= $_POST['password'];
+	$confirmPassword	= $_POST['confirmPass'];
+
+	$hashedpassword= sha1($UserPassword);
+	$con_hashedpassword= sha1($confirmPassword);
+
+	if (empty($UserFullName)|| empty($UserEmail)||empty($UserPhoneNumber)||empty($UserPassword)||empty($confirmPassword)) {
+		
+		echo "Please insert all data";
+	}else{
+		if($hashedpassword != $con_hashedpassword){
+
+		echo "Wrong Confirm password";
+
+
+	}else{
+
+			$stmt = $con->prepare("INSERT INTO users(UserFullName, UserEmail, UserPhoneNumber, UserPassword) VALUES (:zname, :zemail, :zLphone, :zpass)");
+ 			$stmt->execute(array(
+ 				':zname' 	=> $UserFullName,
+ 				':zemail' 	=> $UserEmail,
+ 				':zLphone' 	=> $UserPhoneNumber,
+ 				':zpass'  	=> $hashedpassword
+        		           
+ 					 
+
+
+
+ 			));
+ 			header('location:login.php');
+
+		}
+	}
+
+		
+	}
+
+
+
+
+
+
+
+
+
+?>
 <body>
 <!--Navbar-->
     <?php include('includes/navbar.php') ?>
@@ -25,7 +80,7 @@
 </div>
 <div class="row">
 <div class="container-fluid">
-<form id="contact-form" class="o-contact-form" >
+<form id="contact-form" class="o-contact-form" method="POST" >
 <div class="form-group ">
 <label class="label">Your Name</label>
 <input class="form-control" type="text" name="name" data-required>
@@ -36,18 +91,19 @@
 </div>
 <div class="form-group">
 <label class="label ">Phone Number</label>
-<input class="form-control" type="number" name="phone">
+<input class="form-control" type="number" name="phone" data-required>
 </div>
 <div class="form-group">
 <label class="label ">Password</label>
-<input class="form-control" type="password" name="password">
+<input class="form-control" type="password" name="password" data-required>
 </div>
 <div class="form-group">
 <label class="label ">Confirm password</label>
-<input class="form-control" type="password" name="confirmPass">
+<input class="form-control" type="password" name="confirmPass" data-required>
 </div>
 <div class="form-group">
-  <a href="regions.html" class="btn btn-outline-primary  btn-lg o-btn" id="submit">Register</a>
+  
+  <input class="btn btn-outline-primary  btn-lg o-btn" type="submit" value="Register">
 </div>
 </form>
 </div>
@@ -63,8 +119,6 @@
 
 </div>
 </div>
-
-
 
 <!--starting footer-->
 

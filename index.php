@@ -9,7 +9,11 @@
 </head>
 <body>
 <!--Navbar-->
-    <?php include('includes/navbar.php') ?>
+    <?php include('includes/navbar.php') ;
+    
+    //echo $_SESSION['ID'];
+    //echo $_SESSION['GroupID'];
+    ?>
 
 <!-- navbar ending -->
     
@@ -26,8 +30,15 @@
                     <a href="register.php" class="btn btn-outline-primary e-btn-mine p-2 px-3 m-4" id="register">REGISTER</a>
               <a href="login.php" class="btn btn-outline-primary e-btn-mine  p-2 px-3" id="sign up">SIGN IN</a>
                     <?php 
+                        }elseif (isset($_SESSION['ID'])) {
+                            # code...
+                            ?>
+                            <a href="regions.php" class="btn btn-outline-primary e-btn-mine p-2 px-3 m-4" id="register">REGIONS</a>
+
+                            <?php
                         }
                     ?>
+
 
                 </div>
             </div>
