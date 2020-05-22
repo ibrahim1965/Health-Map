@@ -35,9 +35,9 @@
                   <?php echo "<form  class='text-center'action='page.php?do=EditHospital&sectionid=".$section."&hospitalid=". $hospital_ID ."&regid=". $Region_ID. "' method='POST'>";?>
                   <div class="form-group text-left ">
                      <label for="exampleFormControlInput4">DATE</label>
-                     <input type="date" name="HospitalDate" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date">
+                     <input type="date" name="HospitalDate" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date" required>
                      <label for="exampleFormControlInput5">TIME</label>
-                     <input type="time" name="HospitalTime" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement">
+                     <input type="time" name="HospitalTime" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement" required>
                   </div>
                   <div class="form-group text-left">
                      <label for="exampleFormControlTextarea1">LEAVE YOUR COMMENT</label>
@@ -81,9 +81,9 @@
                   <?php echo "<form  class='text-center'action='page.php?do=EditClinic&clinicid=".$Clinic_ID. "&regid=". $Region_ID. "' method='POST'>";?>
                   <div class="form-group text-left ">
                      <label for="exampleFormControlInput4">DATE</label>
-                     <input type="date" name="ClinicDate" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date">
+                     <input type="date" name="ClinicDate" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date" required>
                      <label for="exampleFormControlInput5">TIME</label>
-                     <input type="time" name="ClinicTime" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement">
+                     <input type="time" name="ClinicTime" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement" required>
                   </div>
                   <div class="form-group text-left">
                      <label for="exampleFormControlTextarea1">LEAVE YOUR COMMENT</label>
@@ -127,9 +127,9 @@
                   <?php echo "<form  class='text-center'action='page.php?do=EditLab&labid=".$Lab_ID. "&regid=". $Region_ID. "' method='POST'>";?>
                   <div class="form-group text-left ">
                      <label for="exampleFormControlInput4">DATE</label>
-                     <input type="date" name="LabDate" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date">
+                     <input type="date" name="LabDate" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date" required>
                      <label for="exampleFormControlInput5">TIME</label>
-                     <input type="time" name="LabTime" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement">
+                     <input type="time" name="LabTime" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement" required>
                   </div>
                   <div class="form-group text-left">
                      <label for="exampleFormControlTextarea1">LEAVE YOUR COMMENT</label>
@@ -263,9 +263,9 @@
                   <?php echo "<form  class='text-center'action='page.php?do=UpdateAppointment&appid=".$_GET['appid']."' method='POST'>";?>
                   <div class="form-group text-left ">
                      <label for="exampleFormControlInput4">DATE</label>
-                     <input type="date" name="Date" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date">
+                     <input type="date" name="Date" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date" required>
                      <label for="exampleFormControlInput5">TIME</label>
-                     <input type="time" name="Time" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement">
+                     <input type="time" name="Time" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement" required>
                   </div>
                   <div class="form-group text-left">
                      <label for="exampleFormControlTextarea1">LEAVE YOUR COMMENT</label>
@@ -304,9 +304,9 @@
                   <?php echo "<form  class='text-center'action='page.php?do=UpdateAppointment&appid=".$_GET['appid']."' method='POST'>";?>
                   <div class="form-group text-left ">
                      <label for="exampleFormControlInput4">DATE</label>
-                     <input type="date" name="Date" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date">
+                     <input type="date" name="Date" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date" required>
                      <label for="exampleFormControlInput5">TIME</label>
-                     <input type="time" name="Time" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement">
+                     <input type="time" name="Time" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement" required>
                   </div>
                   <div class="form-group text-left">
                      <label for="exampleFormControlTextarea1">LEAVE YOUR COMMENT</label>
@@ -346,9 +346,9 @@
                   <?php echo "<form  class='text-center'action='page.php?do=UpdateAppointment&appid=".$_GET['appid']."' method='POST'>";?>
                   <div class="form-group text-left ">
                      <label for="exampleFormControlInput4">DATE</label>
-                     <input type="date" name="Date" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date">
+                     <input type="date" name="Date" class="form-control" id="exampleFormControlInput4" placeholder="Choose your date" required>
                      <label for="exampleFormControlInput5">TIME</label>
-                     <input type="time" name="Time" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement">
+                     <input type="time" name="Time" class="form-control" id="exampleFormControlInput5" placeholder="Select  your appointement" required>
                   </div>
                   <div class="form-group text-left">
                      <label for="exampleFormControlTextarea1">LEAVE YOUR COMMENT</label>

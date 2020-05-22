@@ -78,7 +78,7 @@
       <div class="form-group e-btn-admin my-5">
          <form action="?do=Insert" method="POST">
             <button class="btn btn-outline-success p-2" >ADD</button>
-            <input class="form-group p-2" type="text" name="addRegion" placeholder="Enter region name "/><br/>
+            <input class="form-group p-2" type="text" name="addRegion"  required placeholder="Enter region name "/><br/>
          </form>
       </div>
    </div>

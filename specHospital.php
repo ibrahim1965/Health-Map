@@ -111,7 +111,7 @@
                      <?php echo "<form id='contact-form' class='o-contact-form' action='?do=Insert&hospitalid=". $hospital_ID ."&regid=". $Region_ID. "' method='POST' enctype='multipart/form-data' >";?>
                      <div class="form-group text-left" >
                         <label class="label font-weight-bold">Section name:</label>
-                        <input class="form-control" type="text" name="section-name" data-required>
+                        <input class="form-control" type="text" name="section-name" required>
                      </div>
                      <div class="form-group text-left pb-5">
                         <label class="label font-weight-bold">Image:</label> <br>

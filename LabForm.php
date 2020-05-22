@@ -17,22 +17,22 @@
          <div class="form-row">
             <div class="form-group col-md-12">
                <label for="inputEmail4">Lab Name</label>
-               <input type="text" class="form-control" name="labName" placeholder="Name">
+               <input type="text" class="form-control" name="labName" placeholder="Name" required>
             </div>
          </div>
          <div class="form-row">
             <div class="form-group col-md-12">
                <label for="inputEmail4">Address</label>
-               <input type="text" class="form-control" name="labAddress"  placeholder="Apartment, studio, or floor">
+               <input type="text" class="form-control" name="labAddress"  placeholder="Apartment, studio, or floor" required>
             </div>
          </div>
          <div class="form-group">
             <label for="inputAddress2">Telephone Number</label>
-            <input type="text" class="form-control" name="labPhone"  placeholder="Number">
+            <input type="text" class="form-control" name="labPhone"  placeholder="Number" required>
          </div>
          <div class="form-group">
             <label for="inputAddress2">Working Hours</label>
-            <input type="text" class="form-control" name="WorkingHours"  placeholder="From...">
+            <input type="text" class="form-control" name="WorkingHours"  placeholder="From..." required>
          </div>
          <div class="form-group">
             <label for="exampleFormControlFile1">Hospital Image</label>

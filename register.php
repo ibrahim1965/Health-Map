@@ -16,8 +16,11 @@
    	$con_hashedpassword= sha1($confirmPassword);
    
    	if (empty($UserFullName)|| empty($UserEmail)||empty($UserPhoneNumber)||empty($UserPassword)||empty($confirmPassword)) {
-   		
-   		echo "Please insert all data";
+   		?>
+   		<div class="alert alert-danger" role="alert">
+    			Fill in the form
+  		</div>
+  		<?php
    	}else{
    		if($hashedpassword != $con_hashedpassword){
    
@@ -73,23 +76,23 @@
                      <form id="contact-form" class="o-contact-form" method="POST" >
                         <div class="form-group ">
                            <label class="label">Your Name</label>
-                           <input class="form-control" type="text" name="name" data-required>
+                           <input class="form-control" type="text" name="name" required>
                         </div>
                         <div class="form-group">
                            <label class="label ">Your Email</label>
-                           <input class="form-control" type="email" name="email" data-required>
+                           <input class="form-control" type="email" name="email" required>
                         </div>
                         <div class="form-group">
                            <label class="label ">Phone Number</label>
-                           <input class="form-control" type="number" name="phone" data-required>
+                           <input class="form-control" type="number" name="phone" required>
                         </div>
                         <div class="form-group">
                            <label class="label ">Password</label>
-                           <input class="form-control" type="password" name="password" data-required>
+                           <input class="form-control" type="password" name="password" required>
                         </div>
                         <div class="form-group">
                            <label class="label ">Confirm password</label>
-                           <input class="form-control" type="password" name="confirmPass" data-required>
+                           <input class="form-control" type="password" name="confirmPass" required>
                         </div>
                         <div class="form-group">
                            <input class="btn btn-outline-primary  btn-lg o-btn" type="submit" value="Register">

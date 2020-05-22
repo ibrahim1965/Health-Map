@@ -41,7 +41,11 @@
        header('Location: regions.php');
    
      }else{
-       echo "Wrong password";
+      ?>
+       <div class="alert alert-danger" role="alert">
+          Incorrect mail or password, please try again!
+      </div>
+      <?php
      }
      }
    
@@ -71,11 +75,11 @@
                      <form id="contact-form" class="o-contact-form" action="<?php echo $_SERVER['PHP_SELF'] ?>" method ="POST">
                         <div class="form-group">
                            <label class="label ">Your Email</label>
-                           <input class="form-control" type="email" name="email"  data-required>
+                           <input class="form-control" type="email" name="email"  required>
                         </div>
                         <div class="form-group">
                            <label class="label ">Password</label>
-                           <input class="form-control" type="password" name="pass" data-required>
+                           <input class="form-control" type="password" name="pass" required>
                         </div>
                         <div class="form-group mt-25">
                            <input class="btn btn-outline-primary  btn-lg o-btn" type="submit" value="Login">
