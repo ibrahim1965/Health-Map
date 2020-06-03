@@ -62,6 +62,9 @@
    <!--Navbar-->
    <?php include('includes/navbar.php') ?>
    <!-- navbar ending -->
+   	<?php if (!isset($_SESSION['ID'])) {
+   		
+   	 ?>
    <!--CONTENT-->
    <div class="o-home">
       <div class="o-layer">
@@ -104,5 +107,13 @@
          </div>
       </div>
    </div>
+   <?php }else{
+   ?>
+   		<div class="alert alert-danger" role="alert">
+          Logout First
+      	</div>
+   <?php
+   		}
+   ?>
    <!--starting footer-->
    <?php include('includes/footer.php') ?>
