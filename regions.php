@@ -101,17 +101,27 @@
               $checkregionName = checkItem("RegionName", "regions", $addRegion);
               if ($checkregionName > 0 OR empty($addRegion)) {
                   # code...
-                  echo "exist";
+                  //echo "exist";
+
+                  ?>
+                  <div class="alert alert-danger" role="alert">
+                        Its's Already here!
+                  </div>
+
+                  <?php
+                  header('Refresh: 1.5; url=?do=Manage');
+                  //header('location:?do=Manage');
+                  //exit();
               }else{
                   $stmt = $con->prepare("INSERT INTO regions(RegionName) VALUES (:zaddRegion)");
                   $stmt->execute(array(
                       'zaddRegion' => $addRegion
                   ));
       
-                   
+                   header('location:?do=Manage');
               }
           }
-          header('location:?do=Manage');
+         // header('location:?do=Manage');
       }
       
       elseif ($do == 'Edit') {
