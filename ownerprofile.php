@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Password</a>
+                    <a class="nav-link" href="changepassword.php?>">Password</a>
                   </li>
                     <li class="nav-item">
                   <a class="nav-link" href="logout.php">Logout</a>

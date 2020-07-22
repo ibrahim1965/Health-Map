@@ -105,7 +105,7 @@
 
                   ?>
                   <div class="alert alert-danger" role="alert">
-                        Its's Already here!
+                        This Region existed!
                   </div>
 
                   <?php
