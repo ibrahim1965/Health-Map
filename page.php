@@ -162,12 +162,13 @@
                   $AppointmentComment = $_POST['HospitalComment'];
                   $User_ID            = $_SESSION['ID'];
    
-                  $stmt = $con->prepare("INSERT INTO appointments(AppointmentDate , AppointmentTime, AppointmentComment, Section_ID, User_ID) VALUES (:zAdate, :zAtime, :zAcomment, :zAsecid, :zAuserid)");
+                  $stmt = $con->prepare("INSERT INTO appointments(AppointmentDate , AppointmentTime, AppointmentComment, Section_ID,Hospital_ID, User_ID) VALUES (:zAdate, :zAtime, :zAcomment, :zAsecid,:zAhosid, :zAuserid)");
               $stmt->execute(array(
                   ':zAdate'           => $AppointmentDate,
                   ':zAtime'           => $AppointmentTime,
                   ':zAcomment'        => $AppointmentComment,
                   ':zAsecid'          => $Section_ID,
+                  ':zAhosid'          => $hospital_ID,
                   ':zAuserid'         => $User_ID
                   
    
