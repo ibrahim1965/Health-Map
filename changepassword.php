@@ -68,8 +68,8 @@
           if($count>$count2){
               
               if($profile['Clinic_pass'] == $MColdpassword){
-                $stmt5 = $con->prepare("UPDATE clinics SET Clinic_pass = ? WHERE Clinic_email = $Usermail ");
-                $stmt5 ->execute(array($MCnewpassword));
+                $stmt5 = $con->prepare("UPDATE clinics SET Clinic_pass = ? WHERE Clinic_email = ? ");
+                $stmt5 ->execute(array($MCnewpassword, $Usermail));
                 ?>
                   <div class="alert alert-danger" role="alert">
                         Password Changed.
@@ -91,8 +91,8 @@
             }else if($count2 > $count3){
 
               if($profile['Lab_pass'] == $MColdpassword){
-                $stmt5 = $con->prepare("UPDATE labs SET Lab_pass = ? WHERE Lab_email = $Usermail ");
-                $stmt5 ->execute(array($MCnewpassword));
+                $stmt5 = $con->prepare("UPDATE labs SET Lab_pass = ? WHERE Lab_email = ? ");
+                $stmt5 ->execute(array($MCnewpassword, $Usermail));
                 ?>
                   <div class="alert alert-danger" role="alert">
                         Password Changed.
