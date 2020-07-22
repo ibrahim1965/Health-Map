@@ -24,6 +24,18 @@
          </div>
          <div class="form-row">
             <div class="form-group col-md-12">
+               <label for="inputEmail4">Lab Email</label>
+               <input type="text" class="form-control" name="Hospitalmail" placeholder="Email" required>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-12">
+               <label for="inputEmail4">Lab password</label>
+               <input type="password" class="form-control" name="Hospitalpass" placeholder="Password" required>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-12">
                <label for="inputEmail4">Address</label>
                <input type="text" class="form-control" name="HospitalAddress"  placeholder="Apartment, studio, or floor" required>
             </div>
@@ -78,22 +90,26 @@
    		
    	
    
-   $HospitalName 			= $_POST['HospitalName'];
-   $HospitalAddress 		= $_POST['HospitalAddress'];
-   $HospitalPhone 			= $_POST['HospitalPhone'];
+   $HospitalName 			    = $_POST['HospitalName'];
+   $HospitalAddress 		  = $_POST['HospitalAddress'];
+   $HospitalPhone 			  = $_POST['HospitalPhone'];
    $HospitalWorkingHour 	= $_POST['WorkingHours'];
+   $Hospitalmail          = $_POST['Hospitalmail'];
+   $Hospitalpass          = $_POST['Hospitalpass'];
    
    	
    	
    	//$HregionID = $_GET['regid'];
-   	$stmt = $con->prepare("INSERT INTO hospitals(HospitalName, HospitalAddress, HospitalPhone, HospitalWorkingHour,image, Region_ID) VALUES (:zHname, :zHaddress, :zHphone, :zHworkinghour, :zimage, :zhregionid)");
+   	$stmt = $con->prepare("INSERT INTO hospitals(HospitalName, HospitalAddress, HospitalPhone, HospitalWorkingHour,image, Region_ID, Hospital_email, Hospital_pass) VALUES (:zHname, :zHaddress, :zHphone, :zHworkinghour, :zimage, :zhregionid, :zhmail, :zhpass)");
    	$stmt->execute(array(
-   		':zHname' 			=> $HospitalName,
-   		':zHaddress' 		=> $HospitalAddress,
-   		':zHphone' 			=> $HospitalPhone,
-   		':zHworkinghour'  	=> $HospitalWorkingHour,
-   		':zimage'			=> $Hospital_Image,
-   		':zhregionid'		=> $HregionID
+   		':zHname' 			  => $HospitalName,
+   		':zHaddress' 		  => $HospitalAddress,
+   		':zHphone' 			  => $HospitalPhone,
+   		':zHworkinghour'  => $HospitalWorkingHour,
+   		':zimage'			    => $Hospital_Image,
+   		':zhregionid'		  => $HregionID,
+      ':zhmail'         => $Hospitalmail,
+      'zhpass'          => $Hospitalpass
    
    
    	));

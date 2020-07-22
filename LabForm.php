@@ -22,6 +22,18 @@
          </div>
          <div class="form-row">
             <div class="form-group col-md-12">
+               <label for="inputEmail4">Lab Email</label>
+               <input type="text" class="form-control" name="Labmail" placeholder="Email" required>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-12">
+               <label for="inputEmail4">Lab password</label>
+               <input type="password" class="form-control" name="Labpass" placeholder="Password" required>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-12">
                <label for="inputEmail4">Address</label>
                <input type="text" class="form-control" name="labAddress"  placeholder="Apartment, studio, or floor" required>
             </div>
@@ -79,17 +91,21 @@
    $labAddress            = $_POST['labAddress'];
    $labPhone              = $_POST['labPhone'];
    $labWorkingHour        = $_POST['WorkingHours'];
+   $LabMail               = $_POST['Labmail'];
+   $LabPass               = $_POST['Labpass'];
      
      
      //$HregionID = $_GET['regid'];
-     $stmt = $con->prepare("INSERT INTO labs(LabName, LabAddress, LabPhoneNumber, LabWorkingHours, LabImage, Region_ID) VALUES (:zLname, :zLaddress, :zLphone, :zLworkinghour,:zimage, :zLregionid)");
+     $stmt = $con->prepare("INSERT INTO labs(LabName, LabAddress, LabPhoneNumber, LabWorkingHours, LabImage, Region_ID, Lab_email, Lab_pass) VALUES (:zLname, :zLaddress, :zLphone, :zLworkinghour,:zimage, :zLregionid, :zLmail, :zLpass)");
      $stmt->execute(array(
        ':zLname'           => $labName,
        ':zLaddress'        => $labAddress,
        ':zLphone'          => $labPhone,
        ':zLworkinghour'    => $labWorkingHour,
        ':zimage'           => $Lab_Image,
-       ':zLregionid'       => $LregionID
+       ':zLregionid'       => $LregionID,
+       'zLmail'            => $LabMail,
+       'zLpass'            => $LabPass
    
    
      ));

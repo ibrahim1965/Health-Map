@@ -22,6 +22,18 @@
          </div>
          <div class="form-row">
             <div class="form-group col-md-12">
+               <label for="inputEmail4">Lab Email</label>
+               <input type="text" class="form-control" name="clinicmail" placeholder="Email" required>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-12">
+               <label for="inputEmail4">Lab password</label>
+               <input type="password" class="form-control" name="clinicpass" placeholder="Password" required>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-12">
                <label for="inputEmail4">Address</label>
                <input type="text" class="form-control" name="clinicAddress"  placeholder="Apartment, studio, or floor" required>
             </div>
@@ -54,7 +66,7 @@
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $CregionID =$_GET['regid']; 
    
-      $imageName=  $_FILES['clinicImage']['name'];
+        $imageName=  $_FILES['clinicImage']['name'];
    
         $imageSize= $_FILES['clinicImage']['size'];
    
@@ -76,20 +88,24 @@
     
    
    $clinicName            = $_POST['clinicName'];
-   $clinicAddress           = $_POST['clinicAddress'];
-   $clinicPhone             = $_POST['clinicPhone'];
-   $clinicWorkingHour      = $_POST['WorkingHours'];
+   $clinicAddress         = $_POST['clinicAddress'];
+   $clinicPhone           = $_POST['clinicPhone'];
+   $clinicWorkingHour     = $_POST['WorkingHours'];
+   $clinicMail            = $_POST['clinicmail'];
+   $clinicPass            = $_POST['clinicpass'];
     
     
     //$HregionID = $_GET['regid'];
-    $stmt = $con->prepare("INSERT INTO clinics(ClinicName, ClinicAddress, ClinicPhoneNumber, ClinicWorkingHours, Clinicimage, Region_ID) VALUES (:zCname, :zCaddress, :zCphone, :zCworkinghour,:zimage, :zCregionid)");
+    $stmt = $con->prepare("INSERT INTO clinics(ClinicName, ClinicAddress, ClinicPhoneNumber, ClinicWorkingHours, Clinicimage, Region_ID, Clinic_email , Clinic_pass) VALUES (:zCname, :zCaddress, :zCphone, :zCworkinghour,:zimage, :zCregionid, :zCmail, :zCpass)");
     $stmt->execute(array(
       ':zCname'           => $clinicName,
       ':zCaddress'        => $clinicAddress,
       ':zCphone'          => $clinicPhone,
       ':zCworkinghour'    => $clinicWorkingHour,
-        ':zimage'           => $Clinic_Image,
-      ':zCregionid'       => $CregionID
+      ':zimage'           => $Clinic_Image,
+      ':zCregionid'       => $CregionID,
+      ':zCmail'           => $clinicMail,
+      ':zCpass'           => $clinicPass
    
    
     ));

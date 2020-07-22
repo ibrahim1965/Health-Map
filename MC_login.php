@@ -3,39 +3,54 @@
    require_once('includes/head_section.php');
    include 'includes/DBconnect.php';
    
-   
+   if(isset($_SESSION['MC_USER'])){
+      header('Location: ownerprofile.php');
+   }
    
    if ($_SERVER['REQUEST_METHOD'] =='POST') {
      
-     $Useremail     = $_POST['email'];
-     $userpassword  = $_POST['pass'];
-     $hashedpassword= sha1($userpassword);
+     $MCUseremail     = $_POST['email'];
+     $MCuserpassword  = $_POST['pass'];
+     $MChashedpassword= sha1($MCuserpassword);
    
      //$stmt = $con->prepare("SELECT UserID, UserEmail, UserPassword FROM users WHERE UserEmail = ? AND UserPassword = ? AND GroupID = 1 ");
      //$stmt->execute(array($Useremail, $hashedpassword,));
      //$row = $stmt->fetch(); 
      //$count = $stmt->rowCount();
    
-     if (empty($Useremail) || empty($userpassword)) {
+     if (empty($MCUseremail) || empty($MCuserpassword)) {
        echo "Please insert all data";
      }else{
        
-     $stmt = $con->prepare("SELECT * FROM users WHERE UserEmail = ? AND UserPassword = ? ");
-     $stmt->execute(array($Useremail, $hashedpassword));
+     $stmt = $con->prepare("SELECT * FROM clinics WHERE Clinic_email = ? AND Clinic_pass = ? ");
+     $stmt->execute(array($MCUseremail, $MCuserpassword));
      $profile = $stmt->fetch();
      $count = $stmt->rowCount();
+
+     $stmt2 = $con->prepare("SELECT * FROM labs WHERE Lab_email = ? AND Lab_pass = ? ");
+     $stmt2->execute(array($MCUseremail, $MCuserpassword));
+     $profile2 = $stmt2->fetch();
+     $count2 = $stmt2->rowCount();
+
+     $stmt3 = $con->prepare("SELECT * FROM hospitals WHERE Hospital_email = ? AND Hospital_pass = ? ");
+     $stmt3->execute(array($MCUseremail, $MCuserpassword));
+     $profile3 = $stmt3->fetch();
+     $count3 = $stmt3->rowCount();
+
+
    
    
    
-     if ($count > 0) {
+     if ($count > 0 || $count2 > 0 || $count3 > 0) {
        # code...
-       $_SESSION['USER'] = $Useremail;
-       $_SESSION['ID']   = $profile['UserID'];
-       $_SESSION['GroupID'] = $profile['GroupID'];
+       $_SESSION['MC_USER'] = $MCUseremail;
+       //$_SESSION['MC_cID']   = $profile['ClinicID'];
+
+       //$_SESSION['GroupID'] = $profile['GroupID'];
    
        
        
-       header('Location: regions.php');
+       header('Location: ownerprofile.php');
    
      }else{
       ?>
@@ -59,7 +74,7 @@
    <?php include('includes/navbar.php') ?>
    <!-- navbar ending -->
    <!--CONTENT-->
-   <?php if (!isset($_SESSION['ID']) && !isset($_SESSION['MC_USER'])) {
+   <?php if (!isset($_SESSION['ID']) && !isset($_SESSION['MC_ID'])) {
       
      ?>
    <div class="o-home">
