@@ -38,6 +38,9 @@
           $MColdpassword  = $_POST['oldpass'];
           $MCnewpassword  = $_POST['newpass'];
 
+          $MChashpass = sha1($MColdpassword);
+          $MCnewhashpass = sha1($MCnewpassword);
+
 
           $stmt = $con->prepare("SELECT * FROM clinics WHERE Clinic_email = ?");
           $stmt->execute(array($Usermail));
@@ -67,9 +70,9 @@
 
           if($count>$count2){
               
-              if($profile['Clinic_pass'] == $MColdpassword){
+              if($profile['Clinic_pass'] == $MChashpass){
                 $stmt5 = $con->prepare("UPDATE clinics SET Clinic_pass = ? WHERE Clinic_email = ? ");
-                $stmt5 ->execute(array($MCnewpassword, $Usermail));
+                $stmt5 ->execute(array($MCnewhashpass, $Usermail));
                 ?>
                   <div class="alert alert-danger" role="alert">
                         Password Changed.
@@ -90,9 +93,9 @@
 
             }else if($count2 > $count3){
 
-              if($profile['Lab_pass'] == $MColdpassword){
+              if($profile['Lab_pass'] == $MChashpass){
                 $stmt5 = $con->prepare("UPDATE labs SET Lab_pass = ? WHERE Lab_email = ? ");
-                $stmt5 ->execute(array($MCnewpassword, $Usermail));
+                $stmt5 ->execute(array($MCnewhashpass, $Usermail));
                 ?>
                   <div class="alert alert-danger" role="alert">
                         Password Changed.
@@ -112,9 +115,9 @@
 
             }else{
 
-              if($profile['Hospital_pass'] == $MColdpassword){
-                $stmt5 = $con->prepare("UPDATE hospitals SET Hospital_pass = ? WHERE Hospital_email = ? ");
-                $stmt5 ->execute(array($MCnewpassword, $Usermail ));
+              if($profile['Hospital_pass'] == $MChashpass){
+                $stmt5 = $con->prepare("UPDATE hospitals SET Hospital_pass = ? WHERE Hospital_email = ?");
+                $stmt5 ->execute(array($MCnewhashpass, $Usermail ));
                 ?>
                   <div class="alert alert-danger" role="alert">
                         Password Changed.

@@ -93,6 +93,7 @@
    $labWorkingHour        = $_POST['WorkingHours'];
    $LabMail               = $_POST['Labmail'];
    $LabPass               = $_POST['Labpass'];
+   $Labhashpass           = sha1($LabPass);
      
      
      //$HregionID = $_GET['regid'];
@@ -105,7 +106,7 @@
        ':zimage'           => $Lab_Image,
        ':zLregionid'       => $LregionID,
        'zLmail'            => $LabMail,
-       'zLpass'            => $LabPass
+       'zLpass'            => $Labhashpass
    
    
      ));

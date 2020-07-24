@@ -93,6 +93,7 @@
    $clinicWorkingHour     = $_POST['WorkingHours'];
    $clinicMail            = $_POST['clinicmail'];
    $clinicPass            = $_POST['clinicpass'];
+   $clinichashpass        = sha1($clinicPass);
     
     
     //$HregionID = $_GET['regid'];
@@ -105,7 +106,7 @@
       ':zimage'           => $Clinic_Image,
       ':zCregionid'       => $CregionID,
       ':zCmail'           => $clinicMail,
-      ':zCpass'           => $clinicPass
+      ':zCpass'           => $clinichashpass
    
    
     ));

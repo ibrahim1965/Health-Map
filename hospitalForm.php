@@ -96,6 +96,7 @@
    $HospitalWorkingHour 	= $_POST['WorkingHours'];
    $Hospitalmail          = $_POST['Hospitalmail'];
    $Hospitalpass          = $_POST['Hospitalpass'];
+   $Hospitalhashpass      = sha1($Hospitalpass);
    
    	
    	
@@ -109,7 +110,7 @@
    		':zimage'			    => $Hospital_Image,
    		':zhregionid'		  => $HregionID,
       ':zhmail'         => $Hospitalmail,
-      'zhpass'          => $Hospitalpass
+      ':zhpass'         => $Hospitalhashpass
    
    
    	));

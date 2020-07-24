@@ -23,17 +23,17 @@
      }else{
        
      $stmt = $con->prepare("SELECT * FROM clinics WHERE Clinic_email = ? AND Clinic_pass = ? ");
-     $stmt->execute(array($MCUseremail, $MCuserpassword));
+     $stmt->execute(array($MCUseremail, $MChashedpassword));
      $profile = $stmt->fetch();
      $count = $stmt->rowCount();
 
      $stmt2 = $con->prepare("SELECT * FROM labs WHERE Lab_email = ? AND Lab_pass = ? ");
-     $stmt2->execute(array($MCUseremail, $MCuserpassword));
+     $stmt2->execute(array($MCUseremail, $MChashedpassword));
      $profile2 = $stmt2->fetch();
      $count2 = $stmt2->rowCount();
 
      $stmt3 = $con->prepare("SELECT * FROM hospitals WHERE Hospital_email = ? AND Hospital_pass = ? ");
-     $stmt3->execute(array($MCUseremail, $MCuserpassword));
+     $stmt3->execute(array($MCUseremail, $MChashedpassword));
      $profile3 = $stmt3->fetch();
      $count3 = $stmt3->rowCount();
 
