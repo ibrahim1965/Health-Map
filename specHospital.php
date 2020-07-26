@@ -235,7 +235,11 @@
             ?>
          <div class="col mb-4 col-xl-6 col-md-12 col-sm-12">
             <div class="card o-card-wi">
-               <img src="static/images/dental.jpg" class="card-img-top" alt="..."> <!--section image-->
+               <?php
+               if(empty($section['Section_image'])){?>
+               <img src="static/images/dental.jpg" class="card-img-top" alt=""><?php
+                  }else{
+                  echo "<img src='data/images/".$section['Section_image']."' class='card-img-top' alt='' '>";}?> <!--section image-->
                <div class="card-body">
                   <h1 class="card-title text-center py-2 o-font"><?php echo $section['HSectionName']; ?></h1>
                   <!--section name-->
